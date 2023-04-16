@@ -1,16 +1,15 @@
 pipeline {
     agent any
-    
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/username/repo.git'
-            }
-        }
-        
         stage('Build') {
             steps {
-                sh 'make'
+                sh 'npm install' // Install Node.js dependencies
+                sh 'npm run build' // Build the application
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'npm test' // Run the application tests
             }
         }
     }

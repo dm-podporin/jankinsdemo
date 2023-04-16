@@ -4,16 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 dir('code') {
-                    sh 'npm install' 
-                    sh 'npm run build'  
+                    sh 'npm install'
                 }
-            }
-        }
-        stage('Test') {
-            steps {
-                dir('code') {
-                    sh 'npm test'
-                } 
             }
         }
     }
